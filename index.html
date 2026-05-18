@@ -3,122 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Broast Dar Al Diyafa | Unforgettable Crunch & Flavor</title>
+    <title>BDD - Broast, Sandwiches & More | Jeddah's Choice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #e67e22;
-            --dark-bg: #1a1a1a;
-            --light-text: #f5f6fa;
+            --brand-red: #8B0000; /* Deep maroon/red from logo border */
+            --brand-yellow: #FFD700; /* Golden yellow from banner and inner circle */
+            --brand-white: #FFF; /* Pure white from chicken and text body */
+            --brand-off-white: #FDFCF6; /* Warm background tint */
+            --text-color: #333;
+            --header-text: #FFD700; /* Header text color */
         }
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Crimson Pro', serif; /* Default font for English */
             margin: 0;
             padding: 0;
-            background-color: var(--dark-bg);
-            color: var(--light-text);
+            background-color: var(--brand-off-white);
+            color: var(--text-color);
             line-height: 1.6;
+            direction: ltr; /* Default English direction */
+        }
+        /* Style for Arabic texts */
+        [lang="ar"] {
+            font-family: 'Tajawal', sans-serif; /* Placeholder font for Arabic */
+            direction: rtl;
         }
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1500x800/1a1a1a/e67e22?text=Sizzling+Golden+Broast') center/cover;
-            padding: 6rem 2rem;
+            background-color: var(--brand-red);
+            color: var(--brand-yellow);
+            padding: 3rem 1rem;
             text-align: center;
-            border-bottom: 4px solid var(--primary-color);
+            border-bottom: 5px solid var(--brand-yellow);
         }
-        h1 {
-            font-size: 4rem;
+        .logo-container {
+            margin-bottom: 1rem;
+        }
+        .logo-container img {
+            max-width: 150px; /* Logo size */
+            height: auto;
+        }
+        h1, h2 {
             margin: 0;
-            color: var(--primary-color);
             text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
         }
-        .evocative-statement {
-            font-size: 1.5rem;
+        h1.brand-title {
+            font-size: 3rem;
+            margin-top: 1rem;
+        }
+        .header-intro-block {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
             max-width: 800px;
             margin: 2rem auto 0;
-            font-weight: 300;
-            font-style: italic;
+            flex-wrap: wrap;
+        }
+        .header-intro-text {
+            flex: 1;
+            min-width: 300px;
+            font-size: 1.1rem;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
-        .section-title {
+        .section-title-block {
             text-align: center;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 3rem;
-            text-transform: uppercase;
+            margin-bottom: 4rem;
         }
-        .menu-grid {
+        .section-title-block h2 {
+            font-size: 2.5rem;
+            color: var(--brand-red);
+            text-transform: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
         }
-        .menu-card {
-            background-color: #2d3436;
+        .content-card {
+            background-color: var(--brand-white);
             border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            padding: 2.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
-            border-top: 3px solid var(--primary-color);
+            border-top: 4px solid var(--brand-red);
+            border-bottom: 4px solid var(--brand-yellow);
+            text-align: center;
         }
-        .menu-card:hover {
+        .content-card:hover {
             transform: translateY(-5px);
         }
-        .menu-card h3 {
-            font-size: 1.8rem;
-            margin-top: 0;
-            color: var(--primary-color);
+        .card-icon {
+            font-size: 3rem; /* Placeholder icon style */
+            margin-bottom: 1.5rem;
+            color: var(--brand-red);
         }
-        .menu-card p {
+        .card-title-block {
+            margin-bottom: 1rem;
+        }
+        .card-title-block h3 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--brand-red);
+        }
+        .card-desc-block {
             font-size: 1.1rem;
-            color: #dfe6e9;
+        }
+        .cta-container {
+            text-align: center;
+            margin: 6rem 0;
+        }
+        .menu-link-button {
+            display: inline-block;
+            background-color: var(--brand-red);
+            color: var(--brand-yellow);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(139,0,0,0.4);
+            transition: all 0.3s ease;
+            border: 2px solid var(--brand-red);
+        }
+        .menu-link-button:hover {
+            background-color: var(--brand-yellow);
+            color: var(--brand-red);
+            box-shadow: 0 8px 20px rgba(139,0,0,0.6);
+            transform: scale(1.05);
+        }
+        .locations-section {
+            background-color: var(--brand-red);
+            color: var(--brand-white);
+            padding: 6rem 2rem;
+            border-top: 5px solid var(--brand-yellow);
+        }
+        .locations-title-block {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .locations-title-block h2 {
+            font-size: 2.5rem;
+            color: var(--brand-yellow);
+            text-transform: none;
+        }
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .location-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .location-card h4 {
+            font-size: 1.6rem;
+            color: var(--brand-yellow);
+            margin-top: 0;
         }
         footer {
-            background-color: #000;
+            background-color: var(--brand-yellow);
+            color: var(--brand-red);
             text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid #333;
-        }
-        .location-info {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 1rem;
+            padding: 2rem;
+            border-top: 3px solid var(--brand-red);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Broast Dar Al Diyafa</h1>
-        <p class="evocative-statement">A symphony of golden crunch and fiery spices. We craft bold, unapologetic flavors that command your attention and conquer your cravings.</p>
+        <div class="logo-container">
+            <img src="path_to_your_logo.png" alt="BDD Logo">
+        </div>
+        <div class="brand-name-block">
+            <h1 class="brand-title">BDD</h1>
+            <div lang="ar"><h1 class="brand-title">بي دي دي</h1></div>
+        </div>
+        <div class="header-intro-block">
+            <div class="header-intro-text">
+                <p>Welcome to BDD. Jeddah's choice for satisfying cravings.</p>
+            </div>
+            <div class="header-intro-text" lang="ar">
+                <p>مرحبًا بكم في بي دي دي. خيار جدة لإشباع الرغبات.</p>
+            </div>
+        </div>
     </header>
 
     <div class="container">
-        <h2 class="section-title">The Masterpieces</h2>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <h3>Signature Broast</h3>
-                <p>Marinated to the bone with our secret spice blend, pressure-fried for a devastatingly crisp exterior and a wildly succulent center.</p>
+        <div class="section-title-block">
+            <h2>What We Do</h2>
+            <div lang="ar"><h2>ماذا نفعل</h2></div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-icon">🍗</div> <div class="card-title-block">
+                    <h3>Our Famous Broast Chicken</h3>
+                    <div lang="ar"><h3>دجاج بروست الشهير</h3></div>
+                </div>
+                <div class="card-desc-block">
+                    <p>Crispy, golden perfection, marinated to perfection. Experience the BDD crunch.</p>
+                    <div lang="ar"><p>قرمشة ذهبية ومثالية، مُتبلة بدقة. جرب قرمشة بي دي دي.</p></div>
+                </div>
             </div>
-            <div class="menu-card">
-                <h3>Volcanic Indomie</h3>
-                <p>Not your average noodles. Elevated and loaded with intense seasonings, savory toppings, and a kick of pure heat.</p>
+            <div class="content-card">
+                <div class="card-icon">🥪</div> <div class="card-title-block">
+                    <h3>Grand Sandwich Variety</h3>
+                    <div lang="ar"><h3>مجموعة متنوعة من السندوتشات</h3></div>
+                </div>
+                <div class="card-desc-block">
+                    <p>An incredible range of sandwiches on multiple bread types: Brioche, Tortilla, Arabic, and more.</p>
+                    <div lang="ar"><p>مجموعة رائعة من السندوتشات بأنواع خبز متعددة: البريوش، التورتيلا، العربي، والمزيد.</p></div>
+                </div>
             </div>
-            <div class="menu-card">
-                <h3>Craft Sandwich Rolls</h3>
-                <p>Fresh, pillowy bread packed with explosive flavors, melted cheeses, and premium cuts, toasted to absolute perfection.</p>
+            <div class="content-card">
+                <div class="card-icon">🥤</div> <div class="card-title-block">
+                    <h3>Fresh Juices</h3>
+                    <div lang="ar"><h3>عصائر طازجة</h3></div>
+                </div>
+                <div class="card-desc-block">
+                    <p>Quench your thirst with our selection of fresh, pure, and invigorating juices.</p>
+                    <div lang="ar"><p>أروِ عطشك بمجموعة مختارة من عصائرنا الطازجة والنقية والمنعشة.</p></div>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-icon">🍟</div> <div class="card-title-block">
+                    <h3>Generous Sides</h3>
+                    <div lang="ar"><h3>أطباق جانبية سخية</h3></div>
+                </div>
+                <div class="card-desc-block">
+                    <p>A wide variety of sides to complete your meal, from salads to fries.</p>
+                    <div lang="ar"><p>مجموعة متنوعة من الأطباق الجانبية لتكملة وجبتك، من السلطات إلى البطاطس المقلية.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-container">
+        <a href="path_to_your_menu.pdf" class="menu-link-button">
+            <span>Explore Our Full Menu</span>
+            <div lang="ar"><span>استكشف قائمتنا الكاملة</span></div>
+        </a>
+    </div>
+
+    <div class="locations-section">
+        <div class="locations-title-block">
+            <h2>Our Destinations in Jeddah, Saudi Arabia</h2>
+            <div lang="ar"><h2>وجهاتنا في جدة، المملكة العربية السعودية</h2></div>
+        </div>
+        <div class="locations-grid">
+            <div class="location-card">
+                <h4>Al Hamra Branch - Jeddah</h4>
+                <div lang="ar"><h4>فرع الحمراء - جدة</h4></div>
+                <p>Located in the heart of Al Hamra district.</p>
+                <div lang="ar"><p>يقع في قلب حي الحمراء.</p></div>
+            </div>
+            <div class="location-card">
+                <h4>Ash Shati Branch - Jeddah</h4>
+                <div lang="ar"><h4>فرع الشاطئ - جدة</h4></div>
+                <p>Enjoy BDD by the beautiful Jeddah Corniche.</p>
+                <div lang="ar"><p>استمتع ببي دي دي بجوار كورنيش جدة الجميل.</p></div>
             </div>
         </div>
     </div>
 
     <footer>
-        <div class="location-info">Proudly Serving Jeddah</div>
-        <p>Prepare your palate for the ultimate takeaway experience.</p>
-        <p>&copy; 2026 Broast Dar Al Diyafa. All rights reserved.</p>
+        <p>&copy; 2026 BDD - Broast, Sandwiches & More. All rights reserved.</p>
+        <div lang="ar"><p>&copy; 2026 بي دي دي - بروست، سندوتشات والمزيد. جميع الحقوق محفوظة.</p></div>
     </footer>
 
 </body>
